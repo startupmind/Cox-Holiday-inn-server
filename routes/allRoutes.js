@@ -22,6 +22,11 @@ const homeProjectRoutes = require("./home/homeProjectRoutes");
 const homeProjectUpcomingRoutes = require("./home/homeProjectUpcomingRoutes");
 const homePartnerSectionRoutes = require("./home/homePartnerSectionRoutes");
 const homeSeaViewRoutes = require("./home/homeSeaViewRoutes");
+const projectDetailsRoutes = require("./projectDetails/projectDetailsRoutes");
+const projectTimelineRoutes = require("./projectDetails/projectTimelineRoutes");
+const featuresAmenitiesRoutes = require("./projectDetails/featuresAmenitiesRoutes");
+const timelineDataRoutes = require("./projectDetails/timelineDataRoutes");
+const benefitsDataRoutes = require("./projectDetails/benefitsDataRoutes");
 
 router.get("/", (req, res) => {
   res.send("Server Is Runnings");
@@ -49,5 +54,10 @@ router.use("/", homeProjectRoutes);
 router.use("/", homeProjectUpcomingRoutes);
 router.use("/", homePartnerSectionRoutes);
 router.use("/", homeSeaViewRoutes);
+router.use("/", projectDetailsRoutes);
+router.use("/", projectTimelineRoutes);
+router.use("/", featuresAmenitiesRoutes);
+router.use("/", timelineDataRoutes);
+router.use("/", benefitsDataRoutes);
 
 module.exports = router;
