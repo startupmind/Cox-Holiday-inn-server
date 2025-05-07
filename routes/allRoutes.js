@@ -27,6 +27,9 @@ const projectTimelineRoutes = require("./projectDetails/projectTimelineRoutes");
 const featuresAmenitiesRoutes = require("./projectDetails/featuresAmenitiesRoutes");
 const timelineDataRoutes = require("./projectDetails/timelineDataRoutes");
 const benefitsDataRoutes = require("./projectDetails/benefitsDataRoutes");
+const recentMilestonesRoutes = require("./projectDetails/recentMilestonesRoutes");
+const investmentOpportunityRoutes = require("./investmentOpportunity/investmentOpportunityRoutes");
+const benefitsMaterialityRoutes = require("./investmentOpportunity/benefitsMaterialityRoutes");
 
 router.get("/", (req, res) => {
   res.send("Server Is Runnings");
@@ -59,5 +62,8 @@ router.use("/", projectTimelineRoutes);
 router.use("/", featuresAmenitiesRoutes);
 router.use("/", timelineDataRoutes);
 router.use("/", benefitsDataRoutes);
+router.use("/", recentMilestonesRoutes);
+router.use("/", investmentOpportunityRoutes);
+router.use("/", benefitsMaterialityRoutes);
 
 module.exports = router;
