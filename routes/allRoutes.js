@@ -1,0 +1,53 @@
+const express = require("express");
+const router = express.Router();
+const usersRoutes = require("./userRoutes");
+const fileUploadRoutes = require("./fileUploadRoutes");
+const messageRoutes = require("./message/messageRoutes");
+const galleryPageRoutes = require("./gallery/galleryPageRoutes");
+const socialLinkPageRoutes = require("./socialLinkPage/socialLinkPageRoutes");
+const blogPageRoutes = require("./blogPage/blogPageRoutes");
+const contactPageRoutes = require("./contactPage/contactPageRoutes");
+const aboutPageHeroSectionRoutes = require("./aboutPage/aboutPageHeroSectionRoutes");
+const faqPageHeroSectionRoutes = require("./faqPage/faqPageHeroSectionRoutes");
+const faqPageQuestionRoutes = require("./faqPage/faqPageQuestionRoutes");
+const policyPageHeroSectionRoutes = require("./policyPage/policyPageHeroSectionRoutes");
+const rulesSectionRoutes = require("./policyPage/rulesSectionRoutes");
+const aboutHistorySectionRoutes = require("./aboutPage/aboutHistorySectionRoutes");
+const aboutTeamMemberRoutes = require("./aboutPage/aboutTeamMemberRoutes");
+const homeContentSectionRoutes = require("./home/homeContentSectionRoutes");
+const homeFacilitiesRoutes = require("./home/homeFacilitiesRoutes");
+const homeOwnershipSectionRoutes = require("./home/homeOwnershipSectionRoutes");
+const homeConstructionProgressRoutes = require("./home/homeConstructionProgressRoutes");
+const homeProjectRoutes = require("./home/homeProjectRoutes");
+const homeProjectUpcomingRoutes = require("./home/homeProjectUpcomingRoutes");
+const homePartnerSectionRoutes = require("./home/homePartnerSectionRoutes");
+const homeSeaViewRoutes = require("./home/homeSeaViewRoutes");
+
+router.get("/", (req, res) => {
+  res.send("Server Is Runnings");
+});
+
+router.use("/", usersRoutes);
+router.use("/", fileUploadRoutes);
+router.use("/", messageRoutes);
+router.use("/", galleryPageRoutes);
+router.use("/", socialLinkPageRoutes);
+router.use("/", blogPageRoutes);
+router.use("/", contactPageRoutes);
+router.use("/", aboutPageHeroSectionRoutes);
+router.use("/", faqPageHeroSectionRoutes);
+router.use("/", faqPageQuestionRoutes);
+router.use("/", policyPageHeroSectionRoutes);
+router.use("/", rulesSectionRoutes);
+router.use("/", aboutHistorySectionRoutes);
+router.use("/", aboutTeamMemberRoutes);
+router.use("/", homeContentSectionRoutes);
+router.use("/", homeFacilitiesRoutes);
+router.use("/", homeOwnershipSectionRoutes);
+router.use("/", homeConstructionProgressRoutes);
+router.use("/", homeProjectRoutes);
+router.use("/", homeProjectUpcomingRoutes);
+router.use("/", homePartnerSectionRoutes);
+router.use("/", homeSeaViewRoutes);
+
+module.exports = router;
