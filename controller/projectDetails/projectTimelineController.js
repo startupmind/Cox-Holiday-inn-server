@@ -20,9 +20,7 @@ exports.createProjectTimeline = async (req, res) => {
 // Get All Project Timelines
 exports.getAllProjectTimelines = async (req, res) => {
   try {
-    const projectTimelines = await ProjectTimeline.find().sort({
-      createdAt: -1,
-    });
+    const projectTimelines = await ProjectTimeline.find();
     res.status(200).json(projectTimelines);
   } catch (error) {
     res.status(500).json({

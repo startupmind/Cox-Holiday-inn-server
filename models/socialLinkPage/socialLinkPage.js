@@ -7,6 +7,7 @@ const socialLinkPageSchema = new mongoose.Schema(
     linkDinLink: { type: String, required: true, trim: true },
     instagramLink: { type: String, required: true, trim: true },
     twitterLink: { type: String, required: true, trim: true },
+    whatsAppNumber: { type: String, required: true, trim: true },
   },
   { timestamps: true }
 );

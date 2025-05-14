@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const investmentOpportunitySchema = new mongoose.Schema(
+const investmentOpportunityProjectSchema = new mongoose.Schema(
   {
     img: { type: String, required: true, trim: true },
     text: { type: String, required: true, trim: true },
@@ -8,4 +8,4 @@ const investmentOpportunitySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("investmentOpportunity", investmentOpportunitySchema);
+module.exports = mongoose.model("investmentOpportunityProject", investmentOpportunityProjectSchema);

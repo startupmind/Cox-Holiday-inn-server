@@ -4,27 +4,27 @@ const featuresAmenitiesController = require("../../controller/projectDetails/fea
 const { verifyToken, checkRole } = require("../../middleware/auth");
 
 router.post(
-  "/project-timeline-add",
+  "/features-amenities-add",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   featuresAmenitiesController.createFeaturesAmenities
 );
 router.get(
-  "/project-timeline-all",
+  "/features-amenities-all",
   featuresAmenitiesController.getAllFeaturesAmenities
 );
 router.get(
-  "/project-by-id/:id",
+  "/features-amenities-by-id/:id",
   featuresAmenitiesController.getFeaturesAmenitiesById
 );
 router.put(
-  "/project-timeline-update/:id",
+  "/features-amenities-update/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   featuresAmenitiesController.updateFeaturesAmenities
 );
 router.delete(
-  "/project-timeline-delete/:id",
+  "/features-amenities-delete/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   featuresAmenitiesController.deleteFeaturesAmenities

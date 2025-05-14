@@ -13,7 +13,8 @@ const projectDetailsSchema = new mongoose.Schema(
     interiorsTitle: { type: String, required: true, trim: true },
     interiorsThumbnail: { type: String, required: true, trim: true },
     interiorsDetails: { type: String, required: true, trim: true },
-    CallToActionTitle: { type: String, required: true, trim: true },
+    callToActionTitle: { type: String, required: true, trim: true },
+    isTrue: { type: Boolean, required: true, trim: true },
   },
   { timestamps: true }
 );

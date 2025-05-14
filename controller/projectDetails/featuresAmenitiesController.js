@@ -20,9 +20,7 @@ exports.createFeaturesAmenities = async (req, res) => {
 // Get All Features Amenities
 exports.getAllFeaturesAmenities = async (req, res) => {
   try {
-    const featuresAmenities = await FeaturesAmenities.find().sort({
-      createdAt: -1,
-    });
+    const featuresAmenities = await FeaturesAmenities.find();
     res.status(200).json(featuresAmenities);
   } catch (error) {
     res.status(500).json({

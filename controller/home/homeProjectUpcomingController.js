@@ -1,4 +1,4 @@
-const HomeProjectUpcoming = require("../../models/gallery/homeProjectUpcoming");
+const HomeProjectUpcoming = require("../../models/home/homeProjectUpcoming");
 
 // Create a Home Project Upcoming
 exports.createHomeProjectUpcoming = async (req, res) => {

@@ -1,4 +1,4 @@
-const InvestmentOpportunity = require("../../models/projectDetails/investmentOpportunity");
+const InvestmentOpportunity = require("../../models/projectDetails/investmentOpportunityProject");
 
 // Create a Investment Opportunity
 exports.createInvestmentOpportunity = async (req, res) => {
@@ -20,9 +20,7 @@ exports.createInvestmentOpportunity = async (req, res) => {
 // Get All Investment Opportunity
 exports.getAllInvestmentOpportunity = async (req, res) => {
   try {
-    const investmentOpportunity = await InvestmentOpportunity.find().sort({
-      createdAt: -1,
-    });
+    const investmentOpportunity = await InvestmentOpportunity.find();
     res.status(200).json(investmentOpportunity);
   } catch (error) {
     res.status(500).json({
@@ -41,7 +39,9 @@ exports.getInvestmentOpportunityById = async (req, res) => {
       createdAt: -1,
     });
     if (!investmentOpportunity) {
-      return res.status(404).json({ message: "Investment Opportunity not found" });
+      return res
+        .status(404)
+        .json({ message: "Investment Opportunity not found" });
     }
     res.status(200).json(investmentOpportunity);
   } catch (error) {
@@ -55,13 +55,14 @@ exports.getInvestmentOpportunityById = async (req, res) => {
 // Update a Investment Opportunity
 exports.updateInvestmentOpportunity = async (req, res) => {
   try {
-    const updatedInvestmentOpportunity = await InvestmentOpportunity.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const updatedInvestmentOpportunity =
+      await InvestmentOpportunity.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
     if (!updatedInvestmentOpportunity) {
-      return res.status(404).json({ message: "Investment Opportunity not found" });
+      return res
+        .status(404)
+        .json({ message: "Investment Opportunity not found" });
     }
     res.status(200).json({
       message: "Investment Opportunity updated successfully",
@@ -78,11 +79,12 @@ exports.updateInvestmentOpportunity = async (req, res) => {
 // Delete a Investment Opportunity
 exports.deleteInvestmentOpportunity = async (req, res) => {
   try {
-    const deletedInvestmentOpportunity = await InvestmentOpportunity.findByIdAndDelete(
-      req.params.id
-    );
+    const deletedInvestmentOpportunity =
+      await InvestmentOpportunity.findByIdAndDelete(req.params.id);
     if (!deletedInvestmentOpportunity) {
-      return res.status(404).json({ message: "Investment Opportunity not found" });
+      return res
+        .status(404)
+        .json({ message: "Investment Opportunity not found" });
     }
     res
       .status(200)

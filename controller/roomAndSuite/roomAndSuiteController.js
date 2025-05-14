@@ -92,16 +92,24 @@ exports.updateServiceAmenity = async (req, res) => {
 exports.deleteServiceAmenity = async (req, res) => {
   try {
     const room = await Room.findById(req.params.roomId);
-    if (!room) return res.status(404).json({ error: "Room not found" });
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
 
     const amenity = room.servicesAmenities.id(req.params.amenityId);
-    if (!amenity) return res.status(404).json({ error: "Amenity not found" });
+    if (!amenity) {
+      return res.status(404).json({ message: "Amenity not found" });
+    }
 
-    amenity.remove();
+    room.servicesAmenities.pull(req.params.amenityId);
     await room.save();
-    res.status(200).json(room);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+
+    res.status(200).json({ message: "Amenity deleted successfully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting amenity",
+      error: error.message,
+    });
   }
 };
 
@@ -140,15 +148,57 @@ exports.updateRoomFeature = async (req, res) => {
 exports.deleteRoomFeature = async (req, res) => {
   try {
     const room = await Room.findById(req.params.roomId);
-    if (!room) return res.status(404).json({ error: "Room not found" });
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
 
     const feature = room.roomFeatures.id(req.params.featureId);
-    if (!feature) return res.status(404).json({ error: "Feature not found" });
+    if (!feature) {
+      return res.status(404).json({ message: "Feature not found" });
+    }
 
-    feature.remove();
+    room.roomFeatures.pull(req.params.featureId);
     await room.save();
-    res.status(200).json(room);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+
+    res.status(200).json({ message: "Feature deleted successfully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting feature",
+      error: error.message,
+    });
+  }
+};
+
+exports.getAllServiceAmenities = async (req, res) => {
+  try {
+    const room = await Room.findById(req.params.roomId);
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
+
+    const amenities = room.servicesAmenities || [];
+    res.status(200).json(amenities);
+  } catch (error) {
+    res.status(500).json({
+      message: "Error retrieving service amenities",
+      error: error.message,
+    });
+  }
+};
+
+exports.getAllRoomFeatures = async (req, res) => {
+  try {
+    const room = await Room.findById(req.params.roomId);
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
+
+    const features = room.roomFeatures || [];
+    res.status(200).json(features);
+  } catch (error) {
+    res.status(500).json({
+      message: "Error retrieving room features",
+      error: error.message,
+    });
   }
 };

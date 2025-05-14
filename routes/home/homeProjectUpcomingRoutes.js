@@ -1,37 +1,37 @@
 const express = require("express");
 const router = express.Router();
-const ProjectDisplayController = require("../../controller/home/homeProjectController");
+const homeProjectUpcomingController = require("../../controller/home/homeProjectUpcomingController");
 const { verifyToken, checkRole } = require("../../middleware/auth");
 
 router.post(
   "/create-project-upcoming",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
-  ProjectDisplayController.createHomeProject
+  homeProjectUpcomingController.createHomeProjectUpcoming
 );
 
 router.get(
   "/get-all-project-upcoming",
-  ProjectDisplayController.getAllHomeProjects
+  homeProjectUpcomingController.getAllHomeProjectUpcomings
 );
 
 router.get(
   "/get-project-upcoming/:id",
-  ProjectDisplayController.getHomeProjectById
+  homeProjectUpcomingController.getHomeProjectUpcomingById
 );
 
 router.put(
   "/update-project-upcoming/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
-  ProjectDisplayController.updateHomeProject
+  homeProjectUpcomingController.updateHomeProjectUpcoming
 );
 
 router.delete(
   "/delete-project-upcoming/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
-  ProjectDisplayController.deleteHomeProject
+  homeProjectUpcomingController.deleteHomeProjectUpcoming
 );
 
 module.exports = router;

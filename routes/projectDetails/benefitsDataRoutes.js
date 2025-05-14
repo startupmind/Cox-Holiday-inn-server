@@ -4,21 +4,21 @@ const benefitsDataController = require("../../controller/projectDetails/benefits
 const { verifyToken, checkRole } = require("../../middleware/auth");
 
 router.post(
-  "/project-timeline-add",
+  "/benefits-data-add",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   benefitsDataController.createBenefitsData
 );
-router.get("/project-timeline-all", benefitsDataController.getAllBenefitsData);
-router.get("/project-by-id/:id", benefitsDataController.getBenefitsDataById);
+router.get("/benefits-data-all", benefitsDataController.getAllBenefitsData);
+router.get("/benefits-data-by-id/:id", benefitsDataController.getBenefitsDataById);
 router.put(
-  "/project-timeline-update/:id",
+  "/benefits-data-update/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   benefitsDataController.updateBenefitsData
 );
 router.delete(
-  "/project-timeline-delete/:id",
+  "/benefits-data-delete/:id",
   verifyToken,
   checkRole(["admin", "superAdmin"]),
   benefitsDataController.deleteBenefitsData

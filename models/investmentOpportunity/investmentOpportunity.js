@@ -11,6 +11,7 @@ const businessOpportunitySchema = new mongoose.Schema(
     interiorsThumbnail: { type: String, required: true, trim: true },
     interiorsDetails: { type: String, required: true, trim: true },
     brochureThumbnail: { type: String, required: true, trim: true },
+    isTrue: { type: Boolean, required: true, trim: true },
   },
   { timestamps: true }
 );
